@@ -82,6 +82,42 @@ class CircularSinglyLinkedList:
                 return
             node=node.next
 
+    def deleteNode(self,location):
+        if self.head is None:
+            print("CSLL is empty")
+            return
+        #Begin
+        if location==0:
+            if self.head==self.head.next:
+                self.head=None
+                self.tail=None
+            else:
+                self.head=self.head.next
+                self.tail.next=self.head
+        #End
+        elif location==1:
+            if self.head==self.head.next:
+                self.head=None
+                self.tail=None
+            else:
+                node=self.head
+                while node.next!=self.tail:
+                    node=node.next
+                node.next=self.head
+                self.tail=node
+        #Middle
+        else:
+            index=0
+            node=self.head
+            while index<location-1:
+                node=node.next
+                index+=1
+            newNode=node.next
+            node.next=newNode.next
+
+
+
+
 csll=CircularSinglyLinkedList()
 #csll.createCSLL(1)
 csll.insertCSLL(1,0)
@@ -92,5 +128,8 @@ csll.insertCSLL(4,2)
 
 
 print([node.value for node in csll])
-csll.traverseCSLL()
+#csll.traverseCSLL()
 csll.searchCSLL(3)
+csll.deleteNode(3)
+
+print([node.value for node in csll])
