@@ -65,6 +65,44 @@ class SLinkedList:
                 node=node.next
             print("Element not found")
 
+    #Deleting a node
+    def deleteNode(self,location):
+        if self.head is None:
+            print("No elements in LL")
+            return 
+        #Beginning
+        if location==0:
+            #Check if only one element
+            if self.head==self.tail:
+                self.head=None
+                self.tail=None
+            else:
+                self.head=self.head.next
+        #End
+        elif location==1:
+            #Check if only one element
+            if self.head==self.tail:
+                self.head=None
+                self.tail=None
+            else:
+                node=self.head
+                while node.next!=self.tail:
+                    node=node.next
+                self.tail=node
+                node.next=None
+
+        #Location given
+        else:
+            index=0
+            node=self.head
+            while index<location-1:
+                node=node.next
+                index+=1
+            node.next=node.next.next
+
+
+
+
 
 
 
@@ -78,6 +116,7 @@ sll.insertSll(4,3)
 
 
 print([node.value for node in sll])
-sll.traverseSLL()
+#sll.traverseSLL()
+sll.deleteNode(3)
 
-sll.searchLL(8)
+sll.traverseSLL()
