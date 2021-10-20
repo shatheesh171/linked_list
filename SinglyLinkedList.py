@@ -41,6 +41,33 @@ class SLinkedList:
             newNode.next=tempNode.next
             tempNode.next=newNode
 
+    #Traversing linked list
+    def traverseSLL(self):
+        if self.head is None:
+            print("No elements in linked list")
+        else:
+            node=self.head
+            while node is not None:
+                print(node.value)
+                node=node.next
+
+
+    #Searching for a value in LL
+    def searchLL(self,value):
+        if self.head is None:
+            print("No elements in Linked List")
+        else:
+            node=self.head
+            while node is not None:
+                if node.value==value:
+                    print("Element found")
+                    return
+                node=node.next
+            print("Element not found")
+
+
+
+
 
 sll=SLinkedList()
 sll.insertSll(2)
@@ -51,3 +78,6 @@ sll.insertSll(4,3)
 
 
 print([node.value for node in sll])
+sll.traverseSLL()
+
+sll.searchLL(8)
