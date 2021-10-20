@@ -55,6 +55,33 @@ class CircularSinglyLinkedList:
             node.next=tmp_node.next
             tmp_node.next=node
 
+
+    def traverseCSLL(self):
+        if self.head is None:
+            print("CSLL is empty")
+        else:
+            node=self.head
+            while True:
+                print(node.value)
+                if node.next==self.head:
+                    break
+                node=node.next
+
+
+    def searchCSLL(self,value):
+        if self.head is None:
+            print("CSLL is empty")
+            return
+        node=self.head
+        while node:
+            if node.value==value:
+                print("Element found")
+                return
+            if node.next==self.head:
+                print("Element not found")
+                return
+            node=node.next
+
 csll=CircularSinglyLinkedList()
 #csll.createCSLL(1)
 csll.insertCSLL(1,0)
@@ -65,3 +92,5 @@ csll.insertCSLL(4,2)
 
 
 print([node.value for node in csll])
+csll.traverseCSLL()
+csll.searchCSLL(3)
