@@ -89,6 +89,7 @@ class CircularSinglyLinkedList:
         #Begin
         if location==0:
             if self.head==self.head.next:
+                self.tail.next=None
                 self.head=None
                 self.tail=None
             else:
@@ -97,6 +98,7 @@ class CircularSinglyLinkedList:
         #End
         elif location==1:
             if self.head==self.head.next:
+                self.tail.next=None
                 self.head=None
                 self.tail=None
             else:
@@ -116,6 +118,15 @@ class CircularSinglyLinkedList:
             node.next=newNode.next
 
 
+    def deleteEntireCSLL(self):
+        if self.head is None:
+            print("CSLL is already empty")
+            return
+        self.tail.next=None
+        self.head=None
+        self.tail=None
+
+
 
 
 csll=CircularSinglyLinkedList()
@@ -131,5 +142,5 @@ print([node.value for node in csll])
 #csll.traverseCSLL()
 csll.searchCSLL(3)
 csll.deleteNode(3)
-
+#csll.deleteEntireCSLL()
 print([node.value for node in csll])
