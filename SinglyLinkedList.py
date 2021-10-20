@@ -100,11 +100,13 @@ class SLinkedList:
                 index+=1
             node.next=node.next.next
 
-
-
-
-
-
+    #Delete entire SLL
+    def deleteEntireSLL(self):
+        if self.head is None:
+            print("No elements in SLL")
+        else:
+            self.head=None
+            self.tail=None
 
 
 sll=SLinkedList()
